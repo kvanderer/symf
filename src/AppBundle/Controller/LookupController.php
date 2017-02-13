@@ -29,6 +29,6 @@ class LookupController extends Controller {
 		$scontainer = $this->get('scontainer');
 		$d = $scontainer->hostByName($domain);
 
-		return $this->render('lookup/domain.html.twig', ["domain" => $d]);
+		return $this->render('lookup/domain.html.twig', ["domains" => $d]);
 	}
 }

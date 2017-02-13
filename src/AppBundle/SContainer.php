@@ -18,6 +18,6 @@ class SContainer {
 	 * @return string
 	 */
 	public function hostByName($name) {
-		return gethostbyName($name);
+		return gethostbynamel($name);
 	}
 }
