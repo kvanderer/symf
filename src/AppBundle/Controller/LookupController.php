@@ -4,7 +4,6 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -27,7 +26,8 @@ class LookupController extends Controller {
 	 * @Route("/lookup/{domain}", name="domain_ip")
 	 */
 	public function LookupDomainRoute($domain) {
-		$d = gethostbyname($domain);
+		$scontainer = $this->get('scontainer');
+		$d = $scontainer->hostByName($domain);
 
 		return $this->render('lookup/domain.html.twig', ["domain" => $d]);
 	}
